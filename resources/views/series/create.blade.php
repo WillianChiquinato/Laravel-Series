@@ -24,19 +24,20 @@
         <div class="row mb-3">
             <div class="col-8">
                 <label for="nome" class="escrita-titulos form-label">Nome:</label>
-                <input type="text" autofocus id="nome" name="nome" class="form-control" value="{{ old('nome') }}">
+                <input type="text" autofocus id="nome" name="nome" class="form-control" value="{{ old('nome') }}"
+                    placeholder="Digite um nome...">
             </div>
 
             <div class="col-2">
                 <label for="seasonsQty" class="escrita-titulos form-label">Nº Temporadas:</label>
                 <input type="text" id="seasonsQty" name="seasonsQty" class="form-control"
-                    value="{{ old('seasonsQty') }}">
+                    value="{{ old('seasonsQty') }}" placeholder="Qtd Temporadas...">
             </div>
 
             <div class="col-2">
                 <label for="episodesPerSeason" class="escrita-titulos form-label">Eps / Temporada:</label>
                 <input type="text" id="episodesPerSeason" name="episodesPerSeason" class="form-control"
-                    value="{{ old('episodesPerSeason') }}">
+                    value="{{ old('episodesPerSeason') }}" placeholder="Qtd episodios...">
             </div>
         </div>
 
