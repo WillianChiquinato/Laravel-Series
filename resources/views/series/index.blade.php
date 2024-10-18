@@ -57,7 +57,7 @@
     </style>
 
     <form id="searchForm" class="mb-2">
-        <input type="text" name="query" placeholder="Buscar..." required>
+        <input type="text" id="search-input" name="query" placeholder="Buscar...">
         <button type="submit">🔍</button>
     </form>
 
@@ -65,18 +65,17 @@
 
     <script>
         $(document).ready(function () {
-            $('#searchForm').on('submit', function (e) {
-                e.preventDefault();
+            $('#searchForm').on('submit', function (event) {
+                event.preventDefault(); // Previne o comportamento padrão do formulário
+
+                let query = $('#search-input').val(); // Obtém o valor do campo de pesquisa
 
                 $.ajax({
-                    url: '{{ route("search") }}',
-                    type: 'GET',
-                    data: $(this).serialize(),
-                    success: function (response) {
-                        $('#results').html(response);
-                    },
-                    error: function () {
-                        $('#results').html('<p>Erro na pesquisa. Tente novamente.</p>');
+                    url: "{{ route('series.search') }}", // Certifique-se de que a rota está correta
+                    method: "GET",
+                    data: { query: query },
+                    success: function (data) {
+                        $('#results').html(data); // Atualiza o conteúdo do contêiner de resultados
                     }
                 });
             });
@@ -89,7 +88,7 @@
         </div>
     @endisset
 
-    <ul class="lista-series list-group">
+    <ul class="lista-series list-group" id="series-list">
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="{{ route('seasons.index', $serie->id) }}" class="listas-de-series">
@@ -114,5 +113,4 @@
             </li>
         @endforeach
     </ul>
-
 </x-layout>

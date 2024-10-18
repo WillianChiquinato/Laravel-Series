@@ -79,6 +79,13 @@ class SeriesController extends Controller
     {
         $query = $request->input('query');
 
-        return "<p>Você pesquisou por: <strong>{$query}</strong></p>";
+
+        $results = $series->where('nome', 'like', '%' . $query . '%')->get();
+
+
+        return view('series.partials.series-list', [
+            'series' => $results,
+            'query' => $query,
+        ]);
     }
 }
