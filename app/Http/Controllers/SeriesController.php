@@ -8,6 +8,7 @@ use App\Models\Season;
 use App\Models\Series;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use League\CommonMark\Node\Block\Document;
 
 class SeriesController extends Controller
 {
@@ -72,5 +73,12 @@ class SeriesController extends Controller
 
         return to_route('series.index')
             ->with('mensagem.sucesso', "Série '{$series->nome}' atualizada com sucesso");
+    }
+
+    public function search(Series $series, Request $request)
+    {
+        $query = $request->input('query');
+
+        return "<p>Você pesquisou por: <strong>{$query}</strong></p>";
     }
 }

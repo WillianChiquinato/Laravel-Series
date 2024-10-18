@@ -1,9 +1,15 @@
 <x-layout title="Séries">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
     <div class="botao-add">
         <a href="{{ route('series.create') }}" class="botao-adicionar btn btn-dark mb-2">Adicionar</a>
     </div>
 
     <style>
+        .corvisual {
+            background-color: black;
+        }
+
         .st-tamanho {
             font-size: 10px;
         }
@@ -27,7 +33,55 @@
             font-size: 600;
             text-transform: uppercase;
         }
+
+        #searchForm {
+            display: flex;
+            justify-content: center;
+        }
+
+        .div-button {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .botao {
+            font-weight: 700;
+            font-size: 20px;
+        }
+
+        #results {
+            display: flex;
+            justify-content: center;
+        }
     </style>
+
+    <form id="searchForm" class="mb-2">
+        <input type="text" name="query" placeholder="Buscar..." required>
+        <button type="submit">🔍</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        $(document).ready(function () {
+            $('#searchForm').on('submit', function (e) {
+                e.preventDefault();
+
+                $.ajax({
+                    url: '{{ route("search") }}',
+                    type: 'GET',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $('#results').html(response);
+                    },
+                    error: function () {
+                        $('#results').html('<p>Erro na pesquisa. Tente novamente.</p>');
+                    }
+                });
+            });
+        });
+    </script>
 
     @isset($mensagemSucesso)
         <div class="alert alert-success">
@@ -60,4 +114,5 @@
             </li>
         @endforeach
     </ul>
+
 </x-layout>
