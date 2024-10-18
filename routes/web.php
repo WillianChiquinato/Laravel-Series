@@ -19,6 +19,7 @@ Route::get('/', function () {
     return redirect('/series');
 });
 
+// Criado routes para exibir todas as tabelas e durante o desenvolvimento, percebi que usando o ONLY, ficaria muito extenso a escrita do route, entao usei o exception e pesquisei sobre as telas padrões do laravel, e show nao vou usar, acabei deixando ela de lado
 Route::resource('/series', SeriesController::class)
     ->except(['show']);
 

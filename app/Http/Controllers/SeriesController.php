@@ -14,6 +14,7 @@ class SeriesController extends Controller
 {
     public function index(Request $request)
     {
+        //Exibindo todas as suas series registradas no banco de dados Sqlite
         $series = Series::all();
         $mensagemSucesso = session('mensagem.sucesso');
 
@@ -21,11 +22,13 @@ class SeriesController extends Controller
             ->with('mensagemSucesso', $mensagemSucesso);
     }
 
+    //Metodo para criar uma series no series.create la na tela
     public function create()
     {
         return view('series.create');
     }
 
+    //Metodo responsavel pelo redirecionamento das informações da criação da serie, colocando no banco
     public function store(SeriesFormRequest $request)
     {
         $serie = Series::create($request->all());
@@ -53,6 +56,7 @@ class SeriesController extends Controller
             ->with('mensagem.sucesso', "Série '{$serie->nome}' adicionada com sucesso");
     }
 
+    //Metodo para deletar uma serie
     public function destroy(Series $series)
     {
         $series->delete();
@@ -61,11 +65,13 @@ class SeriesController extends Controller
             ->with('mensagem.sucesso', "Série '{$series->nome}' removida com sucesso");
     }
 
+    //Metodo para ir na tela de EDIT
     public function edit(Series $series)
     {
         return view('series.edit')->with('serie', $series);
     }
 
+    //Metodo para editar uma serie (edit)
     public function update(Series $series, SeriesFormRequest $request)
     {
         $series->fill($request->all());
@@ -75,13 +81,12 @@ class SeriesController extends Controller
             ->with('mensagem.sucesso', "Série '{$series->nome}' atualizada com sucesso");
     }
 
+    // Metodo de pesquisa, usando uma route parcial vamos dizer assim para exibir a pesquisa
     public function search(Series $series, Request $request)
     {
         $query = $request->input('query');
 
-
         $results = $series->where('nome', 'like', '%' . $query . '%')->get();
-
 
         return view('series.partials.series-list', [
             'series' => $results,

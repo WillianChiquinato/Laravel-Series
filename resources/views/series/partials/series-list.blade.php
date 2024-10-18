@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <!-- Tive que fazer uma pagina sem o layout para a exibição da pesquisa, pois no layout tem configurações que nao desejo nesse momento -->
 
     <style>
         .alert {

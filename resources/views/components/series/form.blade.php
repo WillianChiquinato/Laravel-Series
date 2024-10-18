@@ -1,6 +1,7 @@
 <form action="{{ $action }}" method="post">
     @csrf
 
+    <!-- Sala de edição "EDIT", para atualizar uma serie ja existente -->
     <style>
         .escrita-titulos {
             font-weight: 700;

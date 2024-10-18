@@ -1,10 +1,12 @@
 <x-layout title="Séries">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+    <!-- Botao de adicionar uma serie, te redireciona para series/create -->
     <div class="botao-add">
         <a href="{{ route('series.create') }}" class="botao-adicionar btn btn-dark mb-2">Adicionar</a>
     </div>
 
+    <!-- Estilização principal da primeira pagina -->
     <style>
         .corvisual {
             background-color: black;
@@ -56,6 +58,7 @@
         }
     </style>
 
+    <!-- Barra de pesquisa, com um icone copiado OBS: nao sabia que dava pra fazer isso hehe -->
     <form id="searchForm" class="mb-2">
         <input type="text" id="search-input" name="query" placeholder="Buscar...">
         <button type="submit">🔍</button>
@@ -63,31 +66,33 @@
 
     <div id="results"></div>
 
+    <!-- Aqui foi o meu primeiro contato com ajax, sendo sincero, nunca tinha usado mas ja tinha pesquisado, entao fui pesquisar e demorei muito tempo pra achar uma solução que resolveria meu problema -->
     <script>
         $(document).ready(function () {
             $('#searchForm').on('submit', function (event) {
-                event.preventDefault(); // Previne o comportamento padrão do formulário
+                event.preventDefault();
 
-                let query = $('#search-input').val(); // Obtém o valor do campo de pesquisa
-
+                let query = $('#search-input').val();
                 $.ajax({
-                    url: "{{ route('series.search') }}", // Certifique-se de que a rota está correta
+                    url: "{{ route('series.search') }}",
                     method: "GET",
                     data: { query: query },
                     success: function (data) {
-                        $('#results').html(data); // Atualiza o conteúdo do contêiner de resultados
+                        $('#results').html(data);
                     }
                 });
             });
         });
     </script>
 
+    <!-- Como se fosse um prompt do JS para exibir as suas ações na tela index, ou ate mesmo na sua propria como no edit tbm -->
     @isset($mensagemSucesso)
         <div class="alert alert-success">
             {{ $mensagemSucesso }}
         </div>
     @endisset
 
+    <!-- Aqui a parte principal da lista de series, aonde tem a formatação e os links para deixar do jeito ideal -->
     <ul class="lista-series list-group" id="series-list">
         @foreach ($series as $serie)
             <li class="list-group-item d-flex justify-content-between align-items-center">

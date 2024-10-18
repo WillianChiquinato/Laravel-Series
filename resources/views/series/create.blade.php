@@ -18,6 +18,7 @@
         }
     </style>
 
+    <!-- Usando o layout padrão, apenas adicionei uma nova route para fazer a adição da serie, aonde uso o OLD para referenciar a tabela do banco -->
     <form action="{{ route('series.store') }}" method="post">
         @csrf
 

@@ -1,5 +1,6 @@
 <x-layout title="Temporadas de {!! $series->nome !!}">
 
+    <!-- Aqui é o link da temporada exibindo quantas temporadas e quntos episodios -->
     <style>
         .div-button {
             width: 100%;

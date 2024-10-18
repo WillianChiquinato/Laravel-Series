@@ -13,8 +13,8 @@
         rel="stylesheet">
 </head>
 
+<!-- Layout PADRÃO: Utilizado em quase todas as telas instanciando ele no começo, criei essa parte para facilitar e nao repetir codigo, com a configuração de "Errors", pois vai ser referenciado em todas as telas, estilização mais superficial para futuras evoluções -->
 <body>
-
     <style>
         body {
             background-color: #2e004f;
