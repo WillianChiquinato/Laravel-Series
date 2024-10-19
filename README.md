@@ -32,16 +32,27 @@ Banco de dados: Optei pelo SQLITE, durante minha pesquisa, percebi que era possi
 ## Como executar o projeto
 
 Para baixar seu projeto, primeiramente você precisa ter instalados em sua maquina:
-XAMPP - 8.2.12;
-COMPOSER - 2.8.1;
-NODE.JS - 20.18.0;
+-XAMPP - 8.2.12;
+-COMPOSER - 2.8.1;
+-NODE.JS - 20.18.0;
 
 Após isso tudo instalado, baixe o arquivo ZIP aqui do github e extraia seu projeto colocando ele na pasta HTDOCS do XAMPP: XAMPP/Htdocs/Coloca a pasta aqui.
 
-Passo 01: Abra o VScode, com a extensão do PHP e IntelliPhP caso queira modificar algo;
-Passo 02:
-Passo 03:
-Passo 04:
+- **Passo 01:** Abra o VScode, com a extensão do PHP e IntelliPhP caso queira modificar algo;
+- **Passo 02:** Abra o GIT BASH - Terminal/New terminal, Escreva esse comando para verificar: composer --version;
+- **Passo 03:** Agora rode um: Composer install, isso baixará todas as suas dependencias necessárias (Acaba demorando um pouco).
+- **Passo 04 (.ENV):** O arquivo .env é essencial para que o Laravel configure corretamente o ambiente de desenvolvimento, Verifique se ele existe e crie: cp .env.example .env;
+- **Passo 05:** Gere uma chave para sua aplicação: php artisan key:generate;
+- **Passo 06 (Configuração banco de dados):** Antes de subir o server, voce ira ir na pasta DATABASE e fazer um arquivo com nome de "database.sqlite", do mesmo jeito que esta escrito aqui, assim subiremos nosso banco de dados.
+- **Passo 07:** Agora irá no arquivo .ENV que acabou de criar, e ir em DB_CONNECTION=mysql, localizou, em baixo tem uma serie de itens como HOST, POST e tals, voce simplesmente ira apagar essas linhas, assim o resultado ficará:
+DB_CONNECTION=sqlite
+
+- **Passo 08:** Voltando para o Bash, segue o seguindo codigo para atualizar o banco de dados:
+php artisan migrate
+
+- **Passo 09:** Rodando nossa aplicação com:
+php artisan serve, Ctrl + C para copiar o host e esta feito (Cuidado para nao apertar dentro do bash, senao ele derruba a conexão);
+- **Passo final:** Usar a aplicação;
 
 ### Referencias
 
