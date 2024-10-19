@@ -51,8 +51,7 @@ DB_CONNECTION=sqlite
 php artisan migrate
 
 - **Passo 09:** Agora rode a aplicação:
-php artisan serve
-Ctrl + C para copiar o host e esta feito (Cuidado para nao apertar dentro do bash, senao ele derruba a conexão);
+"php artisan serve", Ctrl + C para copiar o host e esta feito (Cuidado para nao apertar dentro do bash, senao ele derruba a conexão);
 - **Passo final:** Usar a aplicação;
 
 ### Referencias
