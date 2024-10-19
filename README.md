@@ -6,10 +6,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
-
-## Descrição do projeto (PT1 - Prévia)
-
 Aqui esta minha aplicação em laravel... Feito com muito carinho atendendo todas as demandas...
+
+## Descrição do projeto
 
 Esse projeto de chama Controle de series, ou melhor, "Series Controller", desenvolvido um CRUD para anotar, pesquisar e armazenar suas series favoritas, as com funcionalidades:
 - Adição: adicionar uma serie com sua quantidade de temporada e quantos episodios existem naquele cenário, de sua preferencia.
@@ -32,6 +31,17 @@ Banco de dados: Optei pelo SQLITE, durante minha pesquisa, percebi que era possi
 
 ## Como executar o projeto
 
+Para baixar seu projeto, primeiramente você precisa ter instalados em sua maquina:
+XAMPP - 8.2.12;
+COMPOSER - 2.8.1;
+NODE.JS - 20.18.0;
+
+Após isso tudo instalado, baixe o arquivo ZIP aqui do github e extraia seu projeto colocando ele na pasta HTDOCS do XAMPP: XAMPP/Htdocs/Coloca a pasta aqui.
+
+Passo 01: Abra o VScode, com a extensão do PHP e IntelliPhP caso queira modificar algo;
+Passo 02:
+Passo 03:
+Passo 04:
 
 ### Referencias
 
