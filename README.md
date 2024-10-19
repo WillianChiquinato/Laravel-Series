@@ -47,11 +47,12 @@ Após isso tudo instalado, baixe o arquivo ZIP aqui do github e extraia seu proj
 - **Passo 07:** Agora irá no arquivo .ENV que acabou de criar, e ir em DB_CONNECTION=mysql, localizou, em baixo tem uma serie de itens como HOST, POST e tals, voce simplesmente ira apagar essas linhas, assim o resultado ficará:
 DB_CONNECTION=sqlite
 
-- **Passo 08:** Voltando para o Bash, segue o seguindo codigo para atualizar o banco de dados:
+- **Passo 08:** Voltando para o Bash, segue o seguinte codigo para atualizar o banco de dados:
 php artisan migrate
 
-- **Passo 09:** Rodando nossa aplicação com:
-php artisan serve, Ctrl + C para copiar o host e esta feito (Cuidado para nao apertar dentro do bash, senao ele derruba a conexão);
+- **Passo 09:** Agora rode a aplicação:
+php artisan serve
+Ctrl + C para copiar o host e esta feito (Cuidado para nao apertar dentro do bash, senao ele derruba a conexão);
 - **Passo final:** Usar a aplicação;
 
 ### Referencias
